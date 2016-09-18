@@ -1,48 +1,9 @@
 #!/usr/bin/env node
 var exec = require('child_process').exec;
+var config = require('./config');
 var processes = [];
 
-function promisify(command) {
-  return new Promise(function(resolve, reject) {
-    var child = exec(command, function(err) {
-      if (err) return reject(err);
-      resolve();
-    });
-    processes.push(child);
-  });
-}
-
-function lyrics() {
-  return [
-    { lyric: 'Push it.', timeout: 775 },
-    { lyric: 'Push it good.', timeout: 2725 },
-    { lyric: 'Push it.', timeout: 4725 },
-    { lyric: 'Push', timeout: 5950 },
-    { lyric: 'it', timeout: 6250 },
-    { lyric: 'REAL', timeout: 6500 },
-    { lyric: 'GOOD!', timeout: 7000 }
-  ];
-}
-
-function printLyrics() {
-  return Promise.all(lyrics().map(function(lyric) {
-    return new Promise(function(resolve) {
-      setTimeout(function() {
-        resolve(console.log(lyric.lyric));
-      }, lyric.timeout);
-    });
-  }));
-}
-
-function playMusic() {
-  return promisify('afplay ~/.git-push-it/pushit.mp3');
-}
-
-function gitPush() {
-  var remote = process.argv[2] || 'origin';
-  var branch = process.argv[3] || 'master';
-  return promisify(['git push', remote, branch].join(' '));
-}
+pushItRealGood();
 
 function pushItRealGood() {
   Promise.all([playMusic(), gitPush(), printLyrics()]).then(function() {
@@ -56,4 +17,32 @@ function pushItRealGood() {
   });
 }
 
-pushItRealGood();
+function playMusic() {
+  return promisify(config.playMusic());
+}
+
+function gitPush() {
+  var remote = process.argv[2] || 'origin';
+  var branch = process.argv[3] || 'master';
+  return promisify(config.gitPush(remote, branch));
+}
+
+function printLyrics() {
+  return Promise.all(config.lyrics().map(function(lyric) {
+    return new Promise(function(resolve) {
+      setTimeout(function() {
+        resolve(console.log(lyric.lyric));
+      }, lyric.timeout);
+    });
+  }));
+}
+
+function promisify(command) {
+  return new Promise(function(resolve, reject) {
+    var child = exec(command, function(err) {
+      if (err) return reject(err);
+      resolve();
+    });
+    processes.push(child);
+  });
+}
