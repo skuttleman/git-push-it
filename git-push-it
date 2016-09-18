@@ -6,7 +6,8 @@ var processes = [];
 pushItRealGood();
 
 function pushItRealGood() {
-  Promise.all([playMusic(), gitPush(), printLyrics()]).then(function() {
+  Promise.all([playMusic(), gitPush(), printLyrics()]).then(function(output) {
+    console.log(output[1]);
     process.exit();
   }).catch(function(err) {
     console.error(err);
@@ -39,9 +40,9 @@ function printLyrics() {
 
 function promisify(command) {
   return new Promise(function(resolve, reject) {
-    var child = exec(command, function(err) {
+    var child = exec(command, function(err, _, out) {
       if (err) return reject(err);
-      resolve();
+      resolve(out);
     });
     processes.push(child);
   });
