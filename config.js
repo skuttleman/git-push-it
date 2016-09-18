@@ -13,7 +13,7 @@ module.exports = {
   playMusic: function() {
     return 'afplay ~/.git-push-it/pushit.mp3';
   },
-  gitPush: function(remote, branch) {
-    return ['git push', remote, branch].join(' ');
+  gitPush: function(args) {
+    return 'git push ' + args.join(' ');
   }
 };

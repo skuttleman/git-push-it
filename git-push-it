@@ -23,9 +23,8 @@ function playMusic() {
 }
 
 function gitPush() {
-  var remote = process.argv[2] || 'origin';
-  var branch = process.argv[3] || 'master';
-  return promisify(config.gitPush(remote, branch));
+  var args = process.argv.slice(2);
+  return promisify(config.gitPush(args));
 }
 
 function printLyrics() {
