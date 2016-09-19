@@ -14,6 +14,9 @@ module.exports = {
     return 'afplay ~/.git-push-it/pushit.mp3';
   },
   gitPush: function(args) {
-    return 'git push ' + args.join(' ');
+    if (args.length) {
+      return 'git push ' + args.join(' ');
+    }
+    return 'git push origin master';
   }
 };
