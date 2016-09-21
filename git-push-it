@@ -6,11 +6,14 @@ var processes = [];
 pushItRealGood();
 
 function pushItRealGood() {
-  Promise.all([playMusic(), gitPush(), printLyrics()]).then(function(output) {
-    console.log(output[1]);
-    process.exit();
+  var args = process.argv.slice(2);
+  return gitLogin(args).then(function() {
+    return Promise.all([playMusic(), gitPush(args), echoLyrics()]).then(function(output) {
+      console.log(output[1]);
+      process.exit();
+    });
   }).catch(function(err) {
-    console.error(err);
+    console.error(err.message || err);
     processes.forEach(function(child) {
       child.kill('SIGKILL');
     });
@@ -18,16 +21,26 @@ function pushItRealGood() {
   });
 }
 
+function gitLogin(args) {
+  return promisify('git remote -v').then(function(remotes) {
+    var promises = config.gitLogin(args, remotes.split('\n'));
+    return promises.reduce(function(chain, command) {
+      return chain.then(function() {
+        return promisify(command);
+      });
+    }, Promise.resolve());
+  });
+}
+
 function playMusic() {
   return promisify(config.playMusic());
 }
 
-function gitPush() {
-  var args = process.argv.slice(2);
+function gitPush(args) {
   return promisify(config.gitPush(args));
 }
 
-function printLyrics() {
+function echoLyrics() {
   return Promise.all(config.lyrics().map(function(lyric) {
     return new Promise(function(resolve) {
       setTimeout(function() {
@@ -39,9 +52,9 @@ function printLyrics() {
 
 function promisify(command) {
   return new Promise(function(resolve, reject) {
-    var child = exec(command, function(err, _, out) {
+    var child = exec(command, function(err, stdout, out) {
       if (err) return reject(err);
-      resolve(out);
+      resolve(out || stdout);
     });
     processes.push(child);
   });
