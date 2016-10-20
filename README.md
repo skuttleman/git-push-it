@@ -2,13 +2,11 @@
 
 This is a simple git plugin that plays appropriate music while pushing your code.
 
-This plugin requires `git > 1.8.2`.
+This plugin requires `git > 1.8.2` and `node.js > 4.0`.
 
 ## HTTP/HTTPS Remotes
 
-Using this plugin with a remote via http/https, requires you to login with username and password _every time_ you push your code.
-
-You must also enable caching with git's credential helper.
+Using this plugin with a remote via http/https, requires you to login with username and password and use git's credential helper.
 
 ```bash
 $ git config --global credential.helper cache

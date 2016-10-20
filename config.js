@@ -1,25 +1,18 @@
+var configs = ['garbage', 'limit', 'pushit', 'pushitup', 'staticx'];
+var randomSong = getRandomItem(configs.map(requireConfig));
+
 module.exports = {
-  lyrics: function() {
-    return [
-      { lyric: 'Push it.', timeout: 785 },
-      { lyric: 'Push it good.', timeout: 2725 },
-      { lyric: 'Push it.', timeout: 4725 },
-      { lyric: 'Push', timeout: 6000 },
-      { lyric: 'it', timeout: 6250 },
-      { lyric: 'REAL', timeout: 6525 },
-      { lyric: 'GOOD!', timeout: 7000 }
-    ];
-  },
-  playMusic: function() {
-    return 'afplay ~/.git-push-it/pushit.mp3';
-  },
   gitPush: function(args) {
     if (args.length) {
       return 'git push ' + args.join(' ');
     }
     return 'git push origin master';
   },
-  gitLogin: gitLogin
+  gitLogin: gitLogin,
+  lyrics: randomSong.lyrics,
+  playMusic: function() {
+    return 'afplay ~/.git-push-it/songs/mp3s/' + randomSong.name + '.mp3';
+  }
 };
 
 function reFind(array, regex) {
@@ -47,4 +40,16 @@ function gitLogin(args, remotes) {
     return loginCommands(remoteUrl, args);
   }
   return [];
+}
+
+function getRandomItem(array) {
+  var index = Math.floor(Math.random() * array.length);
+  return array[index];
+};
+
+function requireConfig(name) {
+  return {
+    name: name,
+    lyrics: require('./songs/' + name + '.config')
+  };
 }
