@@ -12,7 +12,7 @@ Using this plugin with a remote via http/https, requires you to login with usern
 $ git config --global credential.helper cache
 ```
 
-For more on credential caching with git, view the  [documentation](https://git-scm.com/docs/gitcredentials).
+For more on credential caching with git, view the [documentation](https://git-scm.com/docs/gitcredentials).
 
 ## Install
 
@@ -38,4 +38,16 @@ It defaults to `origin master`, but will take a `<remote>` and `<branch>`.
 ```bash
 $ git push-it
 $ git push-it some-remote some-branch
+```
+
+You can set which song to play with the `--anthem` flag.
+
+```bash
+$ git push-it --anthem limit
+```
+
+List available songs with `--list`.
+
+```bash
+$ git push-it --list
 ```

@@ -1,18 +1,31 @@
-var configs = ['garbage', 'limit', 'pushit', 'pushitup', 'staticx'];
+var fs = require('fs');
+var configs = fs.readdirSync('./songs').filter(function(file) {
+  return file.match(/.*\.config\.js/);
+}).map(function(file) {
+  return file.replace(/\.config\.js/, '');
+});
+
 var randomSong = getRandomItem(configs.map(requireConfig));
 
-module.exports = {
-  gitPush: function(args) {
-    if (args.length) {
-      return 'git push ' + args.join(' ');
+module.exports = function(song) {
+  var randomSong = getRandomItem(configs.filter(function(config) {
+    return !song || config === song;
+  }).map(requireConfig));
+  if (!randomSong) throw 'Cannot find song: "' + song + '".';
+  return {
+    gitPush: function(args) {
+      return args.length ? 'git push ' + args.join(' ') : 'git push origin master';
+    },
+    gitLogin: gitLogin,
+    lyrics: randomSong.lyrics,
+    playMusic: function() {
+      return 'afplay ~/.git-push-it/songs/mp3s/' + randomSong.name + '.mp3';
     }
-    return 'git push origin master';
-  },
-  gitLogin: gitLogin,
-  lyrics: randomSong.lyrics,
-  playMusic: function() {
-    return 'afplay ~/.git-push-it/songs/mp3s/' + randomSong.name + '.mp3';
-  }
+  };
+};
+
+module.exports.getSongList = function() {
+  return configs;
 };
 
 function reFind(array, regex) {
