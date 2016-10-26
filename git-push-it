@@ -1,17 +1,32 @@
 #!/usr/bin/env node
-require('./utils/findIndex');
-var exec = require('child_process').exec;
-var config = require('./config');
 var processes = [];
 
-pushItRealGood();
+require('./utils/findIndex');
+var config = require('./config');
+var processFlags = require('./utils/flags');
+var promiseExec = require('./utils/promiseExec')(processes);
+var music = require('./utils/music');
+var git = require('./utils/git');
 
-function pushItRealGood() {
-  var flagged = processFlags();
-  config = config(flagged.song);
-  return gitLogin(flagged.args).then(function() {
-    return Promise.all([playMusic(), gitPush(flagged.args), echoLyrics()]);
-  }).then(pushItSuccess).catch(pushItFailure);
+gitPushIt();
+
+function gitPushIt() {
+  var flagged = processFlags(config.getSongList());
+  var configured = config(flagged.song);
+  return git.login(promiseExec, flagged.args, configured)
+    .then(pushIt(flagged.song, flagged.args, configured))
+    .then(pushItSuccess)
+    .catch(pushItFailure);
+}
+
+function pushIt(song, args, config) {
+  return function() {
+    return Promise.all([
+      music.play(promiseExec, song, config),
+      git.push(promiseExec, args, config),
+      music.echoLyrics(config)
+    ]);
+  };
 }
 
 function pushItSuccess(output) {
@@ -25,87 +40,4 @@ function pushItFailure(err) {
     child.kill('SIGKILL');
   });
   process.exit(1);
-}
-
-function processFlags() {
-  var args = process.argv.slice(2);
-  var song = getSong(args);
-  if (hasList(args)) {
-    listSongs();
-  } else if (song) {
-    args = stripSong(args);
-  }
-  return { args: args, song: song };
-}
-
-function getSong(args) {
-  var song = null;
-  args.find(function(arg, i) {
-    if (arg === '--anthem') song = args[i + 1] || null;
-    else if (arg.match(/^--anthem=/)) song = args[i].replace(/^--anthem=/, '') || null;
-  });
-  return song;
-}
-
-function hasList(args) {
-  return args.find(function(arg) {
-    return arg === '--list';
-  });
-}
-
-function listSongs() {
-  config.getSongList().forEach(function(song) {
-    console.log(song);
-  });
-  process.exit();
-}
-
-function stripSong(args) {
-  var start = args.findIndex(function(arg) {
-    return arg.match(/^--anthem/);
-  });
-  var end = start;
-  if (args[start] === '--anthem') {
-    end = start + 1;
-  }
-  return args.slice(0, start).concat(args.slice(end + 1));
-}
-
-function gitLogin(args) {
-  return promisify('git remote -v').then(function(remotes) {
-    var promises = config.gitLogin(args, remotes.split('\n'));
-    return promises.reduce(function(chain, command) {
-      return chain.then(function() {
-        return promisify(command);
-      });
-    }, Promise.resolve());
-  });
-}
-
-function playMusic(song) {
-  return promisify(config.playMusic());
-}
-
-function gitPush(args) {
-  return promisify(config.gitPush(args));
-}
-
-function echoLyrics() {
-  return Promise.all(config.lyrics().map(function(lyric) {
-    return new Promise(function(resolve) {
-      setTimeout(function() {
-        resolve(console.log(lyric.lyric));
-      }, lyric.timeout);
-    });
-  }));
-}
-
-function promisify(command) {
-  return new Promise(function(resolve, reject) {
-    var child = exec(command, function(err, stdout, out) {
-      if (err) return reject(err);
-      resolve(out || stdout);
-    });
-    processes.push(child);
-  });
 }
