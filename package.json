@@ -1,0 +1,24 @@
+{
+  "name": "git-push-it",
+  "version": "1.3.0",
+  "description": "A git plugin for playing appropriate music while pushing code",
+  "main": "lib/git-push-it",
+  "dependencies": {},
+  "devDependencies": {},
+  "bin": {
+    "git-push-it": "./lib/git-push-it"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skuttleman/git-push-it.git"
+  },
+  "author": "skuttleman@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/skuttleman/git-push-it/issues"
+  },
+  "homepage": "https://github.com/skuttleman/git-push-it#readme"
+}

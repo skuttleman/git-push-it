@@ -1,0 +1,66 @@
+#!/usr/bin/env node
+var argsMatch = require('../utils/argsMatch');
+var git = require('../features/git');
+var listSongs = require('../features/listSongs');
+var log = require('../utils/log');
+var music = require('../features/music');
+var setAnthem = require('../features/setAnthem');
+var version = require('../features/version');
+
+var processes = [];
+
+function main() {
+  shouldShowVersion()
+    .then(shouldListSongs)
+    .then(setAnthem)
+    .then(git.login)
+    .then(gitPushIt)
+    .then(log, console.error)
+    .then(killProcesses)
+    .then(process.exit);
+}
+
+function gitPushIt(config) {
+  return Promise.all([
+    music.play(config.anthem, addProcessChild),
+    music.lyrics(config.anthem),
+    git.push(config.args, addProcessChild)
+  ]);
+}
+
+function shouldListSongs() {
+  if (argsMatch('--list')) {
+    return listSongs()
+      .then(formatSongList)
+      .then(log)
+      .then(process.exit);
+  }
+  return Promise.resolve();
+}
+
+function shouldShowVersion() {
+  if (argsMatch('--version')) {
+    return version.getLocalVersion()
+      .then(version.logVersion)
+      .then(process.exit);
+  }
+  return Promise.resolve();
+}
+
+function killProcesses() {
+  processes.forEach(function(child) {
+    child.kill('SIGKILL');
+  });
+}
+
+function addProcessChild(child) {
+  processes.push(child);
+}
+
+function formatSongList(songs) {
+  return ['Available songs:'].concat(songs.map(function(song) {
+    return '  ' + song;
+  }));
+}
+
+main();
