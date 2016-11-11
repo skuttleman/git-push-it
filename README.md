@@ -16,20 +16,12 @@ $ git config --global credential.helper cache
 
 For more on credential caching with git, view the [documentation](https://git-scm.com/docs/gitcredentials).
 
-## Install
+## Install or Update
 
 To install, simply copy and paste the following into your terminal.
 
 ```bash
 $ npm install git-push-it -g
-```
-
-## Update
-
-To update to the latest version of git-push-it:
-
-```bash
-$ npm update git-push-it -g
 ```
 
 ## Usage

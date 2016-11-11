@@ -27,16 +27,11 @@ function logVersion(version) {
   log('git-push-it version ' + version + '\n');
 }
 
-function versionInfo(versions) {
-  logVersion(versions.local);
-  return outdatedMessage(versions) || 'Your version of git-push-it is up to date.';
-}
-
 function outdatedMessage(versions) {
   if (versions.current > versions.local) {
     return [
       'There is a new version of git-push-it available.',
-      'Run "npm update -g git-push-it" to get the newest version.'
+      'Run "npm install git-push-it -g" to get the newest version.'
     ];
   }
   return '';
@@ -47,6 +42,5 @@ module.exports = {
   getCurrentVersion: getCurrentVersion,
   getLocalVersion: getLocalVersion,
   logVersion: logVersion,
-  outdatedMessage: outdatedMessage,
-  versionInfo: versionInfo,
+  outdatedMessage: outdatedMessage
 };
