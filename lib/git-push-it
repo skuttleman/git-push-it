@@ -24,7 +24,8 @@ function gitPushIt(config) {
   return Promise.all([
     music.play(config.anthem, addProcessChild),
     music.lyrics(config.anthem),
-    git.push(config.args, addProcessChild)
+    git.push(config.args, addProcessChild),
+    version.checkVersion().then(version.outdatedMessage)
   ]);
 }
 
