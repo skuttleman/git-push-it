@@ -3,7 +3,8 @@ var log = require('../utils/log');
 var promise = require('../utils/promise');
 
 function play(song, callback) {
-  return promise.exec('afplay ./songs/mp3s/' + song + '.mp3', callback);
+  var file = joinPath(__dirname, '/../songs/mp3s/' + song + '.mp3');
+  return promise.exec('afplay ' + file, callback);
 }
 
 function lyrics(song) {
