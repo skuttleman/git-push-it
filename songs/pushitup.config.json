@@ -1,8 +1,8 @@
 {
   "lyrics": [
-    { "lyric": "Everybody here.", "timeout": 785 },
-    { "lyric": "This is the jam of the year.", "timeout": 2750 },
-    { "lyric": "Push it up.", "timeout": 6000 },
+    { "lyric": "Everybody here.\n", "timeout": 785 },
+    { "lyric": "This is the jam of the year.\n", "timeout": 2750 },
+    { "lyric": "Push it up.\n", "timeout": 6000 },
     { "lyric": "Push it up.", "timeout": 8710 }
   ]
 }

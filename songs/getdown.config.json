@@ -1,0 +1,13 @@
+{
+  "lyrics": [
+    { "lyric": "Push it.\n", "timeout": 1050 },
+    { "lyric": "Push it.\n", "timeout": 1550 },
+    { "lyric": "I'm perfect.\n", "timeout": 3000 },
+    { "lyric": "Push it.\n", "timeout": 4550 },
+    { "lyric": "Push it.\n", "timeout": 5025 },
+    { "lyric": "Push it.\n", "timeout": 5575 },
+    { "lyric": "Push it.\n", "timeout": 6050 },
+    { "lyric": "Get ", "timeout": 6750 },
+    { "lyric": "down.", "timeout": 7000 }
+  ]
+}

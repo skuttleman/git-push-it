@@ -26,7 +26,10 @@ function gitPushIt(config) {
     music.lyrics(config.anthem),
     git.push(config.args, addProcessChild),
     version.checkVersion().then(version.outdatedMessage)
-  ]);
+  ]).then(function(data) {
+    console.log('\n');
+    return data;
+  });
 }
 
 function shouldListSongs() {
@@ -59,8 +62,8 @@ function addProcessChild(child) {
 }
 
 function formatSongList(songs) {
-  return ['Available songs:'].concat(songs.map(function(song) {
-    return '  ' + song;
+  return ['Available songs:\n'].concat(songs.map(function(song) {
+    return '  ' + song + '\n';
   }));
 }
 

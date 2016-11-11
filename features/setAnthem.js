@@ -1,14 +1,23 @@
+var git = require('./git');
 var listSongs = require('./listSongs');
 var random = require('../utils/random');
 
 module.exports = function() {
-  return listSongs().then(function(songs) {
-    var args = process.argv.slice(2);
-    var arg = getAnthem(process.argv.slice(2));
-    if (arg) return format(arg, args, songs);
-    return { anthem: random(songs), args: args };
-  });
+  return Promise.all([
+    listSongs(),
+    git.wipPush()
+  ]).then(decideSong);
 };
+
+function decideSong(items) {
+  var args = process.argv.slice(2);
+  var songs = items[0];
+  var wip = items[1];
+  var arg = getAnthem(args);
+  if (arg) return format(arg, args, songs);
+  else if (wip) return { anthem: random(isWip(songs)), args: args };
+  return { anthem: random(notWip(songs)), args: args };
+}
 
 function getAnthem(args) {
   return args.find(function(arg) {
@@ -31,7 +40,19 @@ function filterArgs(args) {
 
 function format(arg, args, songs) {
   return {
-    anthem: verifyAnthem(arg, songs) || random(songs),
+    anthem: verifyAnthem(arg, songs) || random(notWip(songs)),
     args: filterArgs(args)
   };
+}
+
+function isWip(songs) {
+  return songs.filter(function(song) {
+    return song.match(/wip/);
+  });
+}
+
+function notWip(songs) {
+  return songs.filter(function(song) {
+    return !song.match(/wip/);
+  });
 }

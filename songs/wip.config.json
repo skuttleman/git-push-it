@@ -1,0 +1,8 @@
+{
+  "lyrics": [
+    { "lyric": "When something's going wrong\n", "timeout": 150 },
+    { "lyric": "You must WIP it.\n", "timeout": 1675 },
+    { "lyric": "Now WIP it. ", "timeout": 4000 },
+    { "lyric": "WIP it good.", "timeout": 5450 }
+  ]
+}

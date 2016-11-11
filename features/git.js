@@ -34,7 +34,19 @@ function parseCommands(args, remotes) {
   return [];
 }
 
+function wipPush() {
+  var args = process.argv.slice(2);
+  return promise.exec('git branch').then(function(branches) {
+    var onWip = reFind(branches.split('\n'), /\*.*wip/i);
+    var argWip = reFind(args, /wip/i);
+    if (onWip || argWip) {
+      return true;
+    }
+  });
+}
+
 module.exports = {
   login: login,
-  push: push
+  push: push,
+  wipPush: wipPush
 };

@@ -1,0 +1,15 @@
+{
+  "lyrics": [
+    { "lyric": "Push", "timeout": 400 },
+    { "lyric": "ing ", "timeout": 675 },
+    { "lyric": "it ", "timeout": 925 },
+    { "lyric": "hard", "timeout": 1250 },
+    { "lyric": "\nTo see ", "timeout": 1650 },
+    { "lyric": "if you can", "timeout": 2400 },
+    { "lyric": "\nBe ", "timeout": 3450 },
+    { "lyric": "there ", "timeout": 3675 },
+    { "lyric": "by ", "timeout": 3950 },
+    { "lyric": "your", "timeout": 4225 },
+    { "lyric": "selves", "timeout": 4500 }
+  ]
+}

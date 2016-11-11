@@ -7,7 +7,7 @@ function logMessages(messages) {
     if (message instanceof Array) {
       logMessages(message);
     } else if (message && message.trim && message.trim()) {
-      console.log(message);
+      process.stdout.write(message);
     }
   })
 }

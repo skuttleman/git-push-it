@@ -1,0 +1,10 @@
+{
+  "lyrics": [
+    { "lyric": "Push the tempo\n", "timeout": 1050 },
+    { "lyric": "Push the tempo\n", "timeout": 2050 },
+    { "lyric": "Push the tempo\n", "timeout": 3100 },
+    { "lyric": "Push the tempo\n", "timeout": 4100 },
+    { "lyric": "Push the tempo\n", "timeout": 5150 },
+    { "lyric": "Push the tempo", "timeout": 6150 }
+  ]
+}

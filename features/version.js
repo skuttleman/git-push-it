@@ -24,7 +24,7 @@ function getLocalVersion() {
 }
 
 function logVersion(version) {
-  log('git-push-it version ' + version);
+  log('git-push-it version ' + version + '\n');
 }
 
 function versionInfo(versions) {

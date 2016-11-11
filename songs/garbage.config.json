@@ -1,6 +1,6 @@
 {
   "lyrics": [
-    { "lyric": "(push it)", "timeout": 25 },
+    { "lyric": "(push it)\n", "timeout": 25 },
     { "lyric": "(push it)", "timeout": 3800 }
   ]
 }
