@@ -1,0 +1,13 @@
+{
+  "lyrics": [
+    { "lyric": "Push! ", "timeout": 50 },
+    { "lyric": "\u266c ", "timeout": 2200 },
+    { "lyric": "\u266c ", "timeout": 2600 },
+    { "lyric": "\u266c ", "timeout": 2975 },
+    { "lyric": "\nPush! ", "timeout": 4350 },
+    { "lyric": "\u266c ", "timeout": 6500 },
+    { "lyric": "\u266c ", "timeout": 6950 },
+    { "lyric": "\u266c ", "timeout": 7300 },
+    { "lyric": "\nPush!", "timeout": 8800 }
+  ]
+}

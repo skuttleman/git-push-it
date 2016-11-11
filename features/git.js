@@ -25,9 +25,9 @@ function loginCommands(url) {
 }
 
 function parseCommands(args, remotes) {
-  var remote = reFind(args, /^[^-]/) || 'origin';
+  var remote = reFind(args, /^[^-]/);
   var remoteVerbose = reFind(remotes, new RegExp('^' + remote + '.*(push)'));
-  var remoteUrl = remoteVerbose.split(/\s/)[1];
+  var remoteUrl = (remoteVerbose) ? remoteVerbose.split(/\s/)[1] : 'origin';
   if (remoteUrl.slice(0, 4) === 'http') {
     return loginCommands(remoteUrl, args);
   }
@@ -37,11 +37,7 @@ function parseCommands(args, remotes) {
 function wipPush() {
   var args = process.argv.slice(2);
   return promise.exec('git branch').then(function(branches) {
-    var onWip = reFind(branches.split('\n'), /\*.*wip/i);
-    var argWip = reFind(args, /wip/i);
-    if (onWip || argWip) {
-      return true;
-    }
+    return reFind(branches.split('\n'), /\*.*wip/i);
   });
 }
 
