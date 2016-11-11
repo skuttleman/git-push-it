@@ -1,6 +1,6 @@
 {
   "name": "git-push-it",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "A git plugin for playing appropriate music while pushing code",
   "main": "lib/git-push-it",
   "dependencies": {
