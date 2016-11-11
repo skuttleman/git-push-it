@@ -30,8 +30,8 @@ function logVersion(version) {
 function outdatedMessage(versions) {
   if (versions.current > versions.local) {
     return [
-      'There is a new version of git-push-it available.',
-      'Run "npm install git-push-it -g" to get the newest version.'
+      'There is a new version of git-push-it available.\n',
+      'Run "npm install git-push-it -g" to get the newest version.\n'
     ];
   }
   return '';
