@@ -13,7 +13,10 @@ function login(config) {
 }
 
 function push(args, callback) {
-  var command = ['git push'].concat(args).join(' ');
+  if (args.every(arg => arg.match(/^(^-)/))) {
+    args = args.concat(['origin', 'master'])
+  }
+  var command = ['git', 'push'].concat(args).join(' ');
   return promise.exec(command, callback);
 }
 
