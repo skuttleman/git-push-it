@@ -11,7 +11,7 @@ function checkVersion() {
 }
 
 function getCurrentVersion() {
-  let command = 'npm view git-push-it --json -loglevel silent';
+  var command = 'npm view git-push-it --json -loglevel silent';
   return promise.exec(command).then(JSON.parse).then(function(data) {
     return data['dist-tags'].latest;
   });

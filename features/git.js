@@ -28,9 +28,9 @@ function loginCommands(url) {
 }
 
 function parseCommands(args, remotes) {
-  var remote = reFind(args, /^[^-]/);
+  var remote = reFind(args, /^[^-]/) || 'origin';
   var remoteVerbose = reFind(remotes, new RegExp('^' + remote + '.*(push)'));
-  var remoteUrl = (remoteVerbose) ? remoteVerbose.split(/\s/)[1] : 'origin';
+  var remoteUrl = (remoteVerbose) ? remoteVerbose.split(/\s/)[1] : '';
   if (remoteUrl.slice(0, 4) === 'http') {
     return loginCommands(remoteUrl, args);
   }
