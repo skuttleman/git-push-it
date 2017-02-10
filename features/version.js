@@ -11,17 +11,24 @@ function checkVersion() {
 }
 
 function getCurrentVersion() {
-  var command = 'npm view git-push-it --json -loglevel silent';
-  return promise.exec(command).then(JSON.parse).then(function(data) {
-    return data['dist-tags'].latest;
+  return new Promise(function(resolve, reject) {
+    var command = 'npm view git-push-it --json -loglevel silent';
+    promise.exec(command)
+      .then(JSON.parse)
+      .then(function(data) {
+        return data['dist-tags'].latest;
+      }).then(resolve, reject);
+    setTimeout(resolve, 6500);
   });
 }
 
 function getLocalVersion() {
   var file = joinPath(__dirname + '/../package.json');
-  return promise.readFile(file).then(function(json) {
-    return JSON.parse(json).version;
-  });
+  return promise.readFile(file)
+    .then(JSON.parse)
+    .then(function(package) {
+      return package.version;
+    });
 }
 
 function logVersion(version) {
