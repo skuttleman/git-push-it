@@ -6,5 +6,9 @@
     { "lyric": "\nYou're working hard!", "timeout": 6325 },
     { "lyric": "\nBoy you got me good", "timeout": 11650 },
     { "lyric": " how you push and shove.", "timeout": 14000 }
-  ]
+  ],
+  "meta": {
+    "artist": "No Doubt",
+    "title": "Push and Shove"
+  }
 }

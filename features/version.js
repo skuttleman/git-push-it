@@ -11,11 +11,11 @@ function checkVersion() {
 }
 
 function getCurrentVersion() {
-  return new Promise(function(resolve, reject) {
+  return new Promise(function (resolve, reject) {
     var command = 'npm view git-push-it --json -loglevel silent';
     promise.exec(command)
       .then(JSON.parse)
-      .then(function(data) {
+      .then(function (data) {
         return data['dist-tags'].latest;
       }).then(resolve, reject);
     setTimeout(resolve, 6500);
@@ -26,7 +26,7 @@ function getLocalVersion() {
   var file = joinPath(__dirname + '/../package.json');
   return promise.readFile(file)
     .then(JSON.parse)
-    .then(function(package) {
+    .then(function (package) {
       return package.version;
     });
 }

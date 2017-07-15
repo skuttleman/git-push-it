@@ -11,5 +11,9 @@
     { "lyric": "by ", "timeout": 3950 },
     { "lyric": "your", "timeout": 4225 },
     { "lyric": "selves", "timeout": 4500 }
-  ]
+  ],
+  "meta": {
+    "artist": "Family Rain",
+    "title": "Pushing It"
+  }
 }

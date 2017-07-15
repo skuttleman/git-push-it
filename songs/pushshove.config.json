@@ -32,5 +32,9 @@
     { "lyric": "\uD83C\uDFB8 ", "timeout": 20700 },
     { "lyric": "\uD83C\uDFB8 ", "timeout": 21450 },
     { "lyric": "\uD83C\uDFB8 ", "timeout": 22150 }
-  ]
+  ],
+  "meta": {
+    "artist": "Tool",
+    "title": "Pushit"
+  }
 }

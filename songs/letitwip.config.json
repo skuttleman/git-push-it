@@ -6,5 +6,9 @@
     { "lyric": "\nLet it WIP.", "timeout": 7325 },
     { "lyric": " (I'm gonna whip.", "timeout": 8275 },
     { "lyric": " I'm gonna whip)", "timeout": 9875 }
-  ]
+  ],
+  "meta": {
+    "artist": "SR-71",
+    "title": "Let It Whip"
+  }
 }

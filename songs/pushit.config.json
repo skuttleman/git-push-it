@@ -8,4 +8,9 @@
     { "lyric": "REAL\n", "timeout": 6525 },
     { "lyric": "GOOD!", "timeout": 7000 }
   ]
+  ,
+  "meta": {
+    "artist": "Salt-N-Pepa",
+    "title": "Push It"
+  }
 }

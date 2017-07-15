@@ -4,5 +4,9 @@
     { "lyric": "It's all because you\n", "timeout": 2000 },
     { "lyric": "Push ", "timeout": 4400 },
     { "lyric": "me.", "timeout": 5600 }
-  ]
+  ],
+  "meta": {
+    "artist": "Madonna",
+    "title": "Push"
+  }
 }

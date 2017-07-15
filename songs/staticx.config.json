@@ -6,5 +6,9 @@
     { "lyric": "Ya push it!\n", "timeout": 2150 },
     { "lyric": "YEAH!\n", "timeout": 3125 },
     { "lyric": "Ya push it!", "timeout": 3700 }
-  ]
+  ],
+  "meta": {
+    "artist": "Static-X",
+    "title": "Push It"
+  }
 }

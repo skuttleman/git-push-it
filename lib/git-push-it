@@ -26,7 +26,7 @@ function gitPushIt(config) {
     music.lyrics(config.anthem),
     git.push(config.args, addProcessChild),
     version.checkVersion().then(version.outdatedMessage)
-  ]).then(function(data) {
+  ]).then(function (data) {
     console.log('\n');
     return data;
   });
@@ -34,7 +34,7 @@ function gitPushIt(config) {
 
 function shouldListSongs() {
   if (argsMatch('--list')) {
-    return listSongs()
+    return listSongs(true)
       .then(formatSongList)
       .then(log)
       .then(process.exit);
@@ -52,7 +52,7 @@ function shouldShowVersion() {
 }
 
 function killProcesses() {
-  processes.forEach(function(child) {
+  processes.forEach(function (child) {
     child.kill('SIGKILL');
   });
 }
@@ -62,7 +62,7 @@ function addProcessChild(child) {
 }
 
 function formatSongList(songs) {
-  return ['Available songs:\n'].concat(songs.map(function(song) {
+  return ['Available songs:\n'].concat(songs.map(function (song) {
     return '  ' + song + '\n';
   }));
 }

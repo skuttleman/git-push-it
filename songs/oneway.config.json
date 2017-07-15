@@ -16,5 +16,9 @@
     { "lyric": " \uD83C\uDFba", "timeout": 13800 },
     { "lyric": " \uD83C\uDFba", "timeout": 14075 },
     { "lyric": " \uD83C\uDFba ", "timeout": 14200 }
-  ]
+  ],
+  "meta": {
+    "artist": "One Way",
+    "title": "Push"
+  }
 }

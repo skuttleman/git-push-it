@@ -6,5 +6,9 @@
     { "lyric": "Push the tempo\n", "timeout": 4100 },
     { "lyric": "Push the tempo\n", "timeout": 5150 },
     { "lyric": "Push the tempo", "timeout": 6150 }
-  ]
+  ],
+  "meta": {
+    "artist": "Fat Boy Slim",
+    "title": "Push the Tempo"
+  }
 }

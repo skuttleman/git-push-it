@@ -2,8 +2,8 @@ var exec = require('child_process').exec;
 var fs = require('fs');
 
 function promiseExec(command, callback) {
-  return new Promise(function(resolve, reject) {
-    var child = exec(command, function(err, stdout, out) {
+  return new Promise(function (resolve, reject) {
+    var child = exec(command, function (err, stdout, out) {
       if (err) return reject(err);
       resolve(out || stdout);
     });
@@ -12,8 +12,8 @@ function promiseExec(command, callback) {
 };
 
 function promiseReadFile(file) {
-  return new Promise(function(resolve, reject) {
-    fs.readFile(file, 'utf-8', function(err, data) {
+  return new Promise(function (resolve, reject) {
+    fs.readFile(file, 'utf-8', function (err, data) {
       if (err) return reject(err);
       resolve(data);
     });
@@ -21,8 +21,8 @@ function promiseReadFile(file) {
 };
 
 function promiseReadDirectory(path) {
-  return new Promise(function(resolve, reject) {
-    fs.readdir(path, function(err, files) {
+  return new Promise(function (resolve, reject) {
+    fs.readdir(path, function (err, files) {
       if (err) return reject(err);
       resolve(files);
     });
@@ -30,7 +30,7 @@ function promiseReadDirectory(path) {
 };
 
 function promiseWrap(value) {
-  return function() {
+  return function () {
     return Promise.resolve(value);
   };
 }

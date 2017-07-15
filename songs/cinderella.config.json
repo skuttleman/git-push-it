@@ -9,6 +9,10 @@
     { "lyric": "Push!", "timeout": 7305 },
     { "lyric": " Push!", "timeout": 7800 },
     { "lyric": "\n\\m/", "timeout": 13000 },
-    { "lyric": " \\m/\n", "timeout": 13500 }
-  ]
+    { "lyric": " \\m/", "timeout": 13500 }
+  ],
+  "meta": {
+    "artist": "Cinderella",
+    "title": "Push, Push"
+  }
 }

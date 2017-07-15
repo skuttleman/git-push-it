@@ -6,9 +6,13 @@
     { "lyric": "\nPush so I can", "timeout": 3725 },
     { "lyric": " see the way.", "timeout": 5500 },
     { "lyric": "\nGonna Push until I", "timeout": 6750 },
-    { "lyric": "\nFind", "timeout": 8950 },
+    { "lyric": " find", "timeout": 8950 },
     { "lyric": " my", "timeout": 9325 },
     { "lyric": " way", "timeout": 9775 },
-    { "lyric": " home.\n", "timeout": 10175 }
-  ]
+    { "lyric": " home.", "timeout": 10175 }
+  ],
+  "meta": {
+    "artist": "Lenny Kravitz",
+    "title": "Push"
+  }
 }

@@ -12,5 +12,9 @@
     { "lyric": "\uD83D\uDD6F ", "timeout": 16715 },
     { "lyric": "\uD83D\uDD6F ", "timeout": 18675 },
     { "lyric": "\uD83D\uDD6F ", "timeout": 20400 }
-  ]
+  ],
+  "meta": {
+    "artist": "Nikka Costa",
+    "title": "Push and Pull"
+  }
 }

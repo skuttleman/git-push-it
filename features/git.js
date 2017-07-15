@@ -2,10 +2,10 @@ var reFind = require('../utils/reFind');
 var promise = require('../utils/promise');
 
 function login(config) {
-  return promise.exec('git remote -v').then(function(remotes) {
+  return promise.exec('git remote -v').then(function (remotes) {
     var commands = parseCommands(config.args, remotes.split('\n'));
-    return commands.reduce(function(chain, command) {
-      return chain.then(function() {
+    return commands.reduce(function (chain, command) {
+      return chain.then(function () {
         return promise.exec(command);
       });
     }, Promise.resolve());
@@ -39,7 +39,7 @@ function parseCommands(args, remotes) {
 
 function wipPush() {
   var args = process.argv.slice(2);
-  return promise.exec('git branch').then(function(branches) {
+  return promise.exec('git branch').then(function (branches) {
     return reFind(branches.split('\n'), /\*.*wip/i);
   });
 }

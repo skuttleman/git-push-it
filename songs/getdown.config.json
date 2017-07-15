@@ -9,5 +9,9 @@
     { "lyric": "Push it.\n", "timeout": 6050 },
     { "lyric": "Get ", "timeout": 6750 },
     { "lyric": "down.", "timeout": 7000 }
-  ]
+  ],
+  "meta": {
+    "artist": "Unknown",
+    "title": "Perfect (Exceeder)"
+  }
 }

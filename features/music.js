@@ -8,14 +8,14 @@ function play(song, callback) {
 }
 
 function lyrics(song) {
-  return getConfig(song).then(function(lyrics) {
+  return getConfig(song).then(function (lyrics) {
     return Promise.all(lyrics.map(timed));
   });
 }
 
 function timed(lyric) {
-  return new Promise(function(resolve, reject) {
-    setTimeout(function() {
+  return new Promise(function (resolve, reject) {
+    setTimeout(function () {
       resolve(log(lyric.lyric));
     }, lyric.timeout);
   });
@@ -23,7 +23,7 @@ function timed(lyric) {
 
 function getConfig(song) {
   var file = joinPath(__dirname, '/../songs/' + song + '.config.json');
-  return promise.readFile(file).then(JSON.parse).then(function(data) {
+  return promise.readFile(file).then(JSON.parse).then(function (data) {
     return data.lyrics;
   });
 }

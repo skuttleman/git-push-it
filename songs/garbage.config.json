@@ -2,5 +2,9 @@
   "lyrics": [
     { "lyric": "(push it)\n", "timeout": 25 },
     { "lyric": "(push it)", "timeout": 3800 }
-  ]
+  ],
+  "meta": {
+    "artist": "Garbage",
+    "title": "Push It"
+  }
 }

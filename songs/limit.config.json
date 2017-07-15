@@ -10,5 +10,9 @@
     { "lyric": "...the limit.\n", "timeout": 17933 },
     { "lyric": "...the limit.\n", "timeout": 18666 },
     { "lyric": "...the limit!", "timeout": 19400 }
-  ]
+  ],
+  "meta": {
+    "artist": "Paul Engemann",
+    "title": "Push It to the Limit"
+  }
 }

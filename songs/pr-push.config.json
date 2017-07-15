@@ -9,5 +9,9 @@
     { "lyric": "\u266c ", "timeout": 6950 },
     { "lyric": "\u266c ", "timeout": 7300 },
     { "lyric": "\nPush!", "timeout": 8800 }
-  ]
+  ],
+  "meta": {
+    "artist": "Prince",
+    "title": "Push"
+  }
 }

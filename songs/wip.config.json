@@ -4,5 +4,9 @@
     { "lyric": "You must WIP it.\n", "timeout": 1675 },
     { "lyric": "Now WIP it. ", "timeout": 4000 },
     { "lyric": "WIP it good.", "timeout": 5450 }
-  ]
+  ],
+  "meta": {
+    "artist": "Devo",
+    "title": "Whip It"
+  }
 }
