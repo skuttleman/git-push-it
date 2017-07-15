@@ -1,0 +1,20 @@
+{
+  "lyrics": [
+    { "lyric": "Push.", "timeout": 10 },
+    { "lyric": " Push.", "timeout": 900 },
+    { "lyric": " Push.", "timeout": 1750 },
+    { "lyric": "\nPush it in the groove.", "timeout": 3125 },
+    { "lyric": " \uD83C\uDFba", "timeout": 5450 },
+    { "lyric": " \uD83C\uDFba", "timeout": 5700 },
+    { "lyric": " \uD83C\uDFba", "timeout": 5975 },
+    { "lyric": " \uD83C\uDFba ", "timeout": 6100 },
+    { "lyric": "\nPush.", "timeout": 8110 },
+    { "lyric": " Push.", "timeout": 9000 },
+    { "lyric": " Push.", "timeout": 9850 },
+    { "lyric": "\nMake my body move.", "timeout": 11225 },
+    { "lyric": " \uD83C\uDFba", "timeout": 13550 },
+    { "lyric": " \uD83C\uDFba", "timeout": 13800 },
+    { "lyric": " \uD83C\uDFba", "timeout": 14075 },
+    { "lyric": " \uD83C\uDFba ", "timeout": 14200 }
+  ]
+}

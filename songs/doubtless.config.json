@@ -1,0 +1,10 @@
+{
+  "lyrics": [
+    { "lyric": "You push and shove.", "timeout": 200 },
+    { "lyric": "\nI take the bait.", "timeout": 2200 },
+    { "lyric": "\nIt's a risky business gonna play it anyway.", "timeout": 3910 },
+    { "lyric": "\nYou're working hard!", "timeout": 6325 },
+    { "lyric": "\nBoy you got me good", "timeout": 11650 },
+    { "lyric": " how you push and shove.", "timeout": 14000 }
+  ]
+}

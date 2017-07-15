@@ -1,0 +1,16 @@
+{
+  "lyrics": [
+    { "lyric": "You push and", "timeout": 175 },
+    { "lyric": " you pull and", "timeout": 1000 },
+    { "lyric": " struggle with the knot.\uD83D\uDD6F ", "timeout": 1850 },
+    { "lyric": "\nIt's tying you up while your fading.\uD83D\uDD6F ", "timeout": 4500 },
+    { "lyric": "\nYou push and", "timeout": 7250 },
+    { "lyric": " you pull and", "timeout": 8125 },
+    { "lyric": " struggle with the knot.\uD83D\uDD6F ", "timeout": 8975 },
+    { "lyric": "\nIt's tying you up while your fading", "timeout": 11600 },
+    { "lyric": " into your lie.\uD83D\uDD6F ", "timeout": 14175 },
+    { "lyric": "\uD83D\uDD6F ", "timeout": 16715 },
+    { "lyric": "\uD83D\uDD6F ", "timeout": 18675 },
+    { "lyric": "\uD83D\uDD6F ", "timeout": 20400 }
+  ]
+}

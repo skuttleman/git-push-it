@@ -1,0 +1,9 @@
+{
+  "lyrics": [
+    { "lyric": "Push me.", "timeout": 75 },
+    { "lyric": " Shove me.", "timeout": 1025 },
+    { "lyric": "\nI don't call that \"love me\".", "timeout": 2525 },
+    { "lyric": "\nI call that", "timeout": 3975 },
+    { "lyric": " over.", "timeout": 4690 }
+  ]
+}

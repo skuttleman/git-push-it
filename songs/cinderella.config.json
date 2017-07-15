@@ -1,0 +1,14 @@
+{
+  "lyrics": [
+    { "lyric": "Push!", "timeout": 5 },
+    { "lyric": " Push!", "timeout": 500 },
+    { "lyric": "\nIf you TAKE a little...\n", "timeout": 1650 },
+    { "lyric": "Push!", "timeout": 3655 },
+    { "lyric": " Push!", "timeout": 4150 },
+    { "lyric": "\nThen you'll GET a little...\n", "timeout": 5200 },
+    { "lyric": "Push!", "timeout": 7305 },
+    { "lyric": " Push!", "timeout": 7800 },
+    { "lyric": "\n\\m/", "timeout": 13000 },
+    { "lyric": " \\m/\n", "timeout": 13500 }
+  ]
+}
