@@ -2,9 +2,9 @@ var joinPath = require('path.join');
 var log = require('../utils/log');
 var promise = require('../utils/promise');
 
-function play(song, callback) {
+function play(song, volume, callback) {
   var file = joinPath(__dirname, '/../songs/mp3s/' + song + '.mp3');
-  return promise.exec('afplay ' + file, callback);
+  return promise.exec('afplay --volume ' + volume + ' ' + file, callback);
 }
 
 function lyrics(song) {

@@ -5,6 +5,7 @@ var listSongs = require('../features/listSongs');
 var log = require('../utils/log');
 var music = require('../features/music');
 var setAnthem = require('../features/setAnthem');
+var setVolume = require('../features/setVolume');
 var version = require('../features/version');
 
 var processes = [];
@@ -13,6 +14,7 @@ function main() {
   shouldShowVersion()
     .then(shouldListSongs)
     .then(setAnthem)
+    .then(setVolume)
     .then(git.login)
     .then(gitPushIt)
     .then(log, console.error)
@@ -22,7 +24,7 @@ function main() {
 
 function gitPushIt(config) {
   return Promise.all([
-    music.play(config.anthem, addProcessChild),
+    music.play(config.anthem, config.volume, addProcessChild),
     music.lyrics(config.anthem),
     git.push(config.args, addProcessChild),
     version.checkVersion().then(version.outdatedMessage)
