@@ -46,6 +46,15 @@ You can set which song to play with the `--anthem` flag.
 $ git push-it --anthem=limit
 ```
 
+### You can set the volume of the song
+
+You can set the volume to play with the `--volume` flag. The values are between 0 and 1. The default volume is 1, which is using the maximum media volume.
+It accepts decimal values like 0.5 for 50% of the media volume.
+
+```bash
+$ git push-it --volume=0.5
+```
+
 ### List available songs
 
 ```bash
